@@ -202,7 +202,7 @@ impl Configuration {
     fn cfg() -> &'static Configuration {
         #[cfg(test)]
         {
-            return CONFIG.get_or_init(Self::default_for_tests);
+            CONFIG.get_or_init(Self::default_for_tests)
         }
 
         #[cfg(not(test))]
