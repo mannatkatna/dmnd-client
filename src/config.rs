@@ -126,6 +126,7 @@ pub struct Configuration {
     miner_name: Option<String>,
 }
 impl Configuration {
+    #[allow(clippy::too_many_arguments)]
     pub fn new(
         token: Option<String>,
         tp_address: Option<String>,
