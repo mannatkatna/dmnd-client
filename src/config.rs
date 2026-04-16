@@ -175,10 +175,42 @@ impl Configuration {
             .expect("Configuration already initialized");
     }
 
+    #[cfg(test)]
+    fn default_for_tests() -> Self {
+        Self::new(
+            Some("test_token".to_string()),
+            None,
+            120_000,
+            0,
+            DEFAULT_SV1_HASHPOWER,
+            "info".to_string(),
+            "off".to_string(),
+            false,
+            false,
+            false,
+            false,
+            true,
+            None,
+            "3001".to_string(),
+            false,
+            false,
+            "DDxDD".to_string(),
+            None,
+        )
+    }
+
     fn cfg() -> &'static Configuration {
-        CONFIG
-            .get()
-            .expect("Configuration not initialized; call start() first")
+        #[cfg(test)]
+        {
+            return CONFIG.get_or_init(Self::default_for_tests);
+        }
+
+        #[cfg(not(test))]
+        {
+            CONFIG
+                .get()
+                .expect("Configuration not initialized; call start() first")
+        }
     }
 
     pub fn token() -> Option<String> {
