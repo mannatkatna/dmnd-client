@@ -86,8 +86,7 @@ Example:
 After you have Bitcoin Core, Stratum V2 Template Provider and DMND Stratum V2 Client running, you
 can point your miner to the DMND Stratum V2 Client.
 
-Enter your DMND token in the password field and include it in the username as shown above and point your miners to the machine running the DMND Stratum V2 Client. 
-The username field must include your DMND token.
+Enter your DMND token in the password field and point your miners to the machine running the DMND Stratum V2 Client. The username field can be left empty or filled with anything you like. If not changed, the default port of the
 
 **Example:
 username: your_token.worker_name  
